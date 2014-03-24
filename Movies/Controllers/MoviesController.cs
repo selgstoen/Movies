@@ -13,7 +13,7 @@ namespace Movies.Controllers
 {
     public class MoviesController : ApiController
     {
-        private MoviesContext db = new MoviesContext();
+        private readonly MoviesContext db = new MoviesContext();
 
         // GET api/Movies
         public IEnumerable<Movie> GetMovies()
