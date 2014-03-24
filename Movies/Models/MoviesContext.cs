@@ -9,6 +9,21 @@ namespace Movies.Models
         {
         }
 
+        public IList<Cinema> Cinemas
+        {
+            get { return GetCinemas(); }
+        }
+
+        private IList<Cinema> GetCinemas()
+        {
+            var cinemas = new List<Cinema>();
+            var cinemaOne = new Cinema {Id = 1, Name = "Sanvika"};
+            var cinemaTwo = new Cinema {Id = 2, Name = "Asker"};
+            cinemas.Add(cinemaOne);
+            cinemas.Add(cinemaTwo);
+            return cinemas;
+        }
+
         public IList<Movie> Movies
         {
             get

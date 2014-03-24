@@ -101,10 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CinemaController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cinema.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,7 +5,8 @@ window.app.service = (function () {
     var serviceUrls = {
         movies: function () { return baseUri; },
         byGenre: function (genre) { return baseUri + '?genre=' + genre; },
-        byId: function (id) { return baseUri + id; }
+        byId: function (id) { return baseUri + id; },
+        cinemas: function () { return '/api/cinemas/'; }
     }
 
     function ajaxRequest(type, url, data) {
@@ -31,6 +32,9 @@ window.app.service = (function () {
         },
         update: function (item) {
             return ajaxRequest('put', serviceUrls.byId(item.ID), item);
+        },
+        cinemas: function() {
+            return ajaxRequest('get', serviceUrls.cinemas());
         }
     };
 })();

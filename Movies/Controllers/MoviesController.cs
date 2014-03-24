@@ -15,6 +15,8 @@ namespace Movies.Controllers
     {
         private readonly MoviesContext db = new MoviesContext();
 
+        
+
         // GET api/Movies
         public IEnumerable<Movie> GetMovies()
         {
