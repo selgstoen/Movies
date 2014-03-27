@@ -1,25 +1,26 @@
-﻿function movie(data) {
-    var self = this;
-    data = data || {};
+﻿/// <reference path="models.js" />
+//function movie(data) {
+//    var self = this;
+//    data = data || {};
 
-    // Data from model
-    self.ID = data.ID;
-    self.Title = ko.observable(data.Title);
-    self.Year = ko.observable(data.Year);
-    self.Rating = ko.observable(data.Rating);
-    self.Genre = ko.observable(data.Genre);
+//    // Data from model
+//    self.ID = data.ID;
+//    self.Title = ko.observable(data.Title);
+//    self.Year = ko.observable(data.Year);
+//    self.Rating = ko.observable(data.Rating);
+//    self.Genre = ko.observable(data.Genre);
 
-    // Local (client) data
-    self.editing = ko.observable(false);
-};
+//    // Local (client) data
+//    self.editing = ko.observable(false);
+//};
 
-function cinema(data) {
-    var self = this;
-    data = data || {};
+//function cinema(data) {
+//    var self = this;
+//    data = data || {};
 
-    self.ID = ko.observable(data.Id);
-    self.Name = ko.observable(data.Name);
-};
+//    self.ID = ko.observable(data.Id);
+//    self.Name = ko.observable(data.Name);
+//};
 
 var ViewModel = function () {
     var self = this;

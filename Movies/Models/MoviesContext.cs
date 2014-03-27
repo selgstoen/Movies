@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Movies.Models
@@ -14,22 +15,30 @@ namespace Movies.Models
             get { return GetCinemas(); }
         }
 
-        private IList<Cinema> GetCinemas()
-        {
-            var cinemas = new List<Cinema>();
-            var cinemaOne = new Cinema {Id = 1, Name = "Sanvika"};
-            var cinemaTwo = new Cinema {Id = 2, Name = "Asker"};
-            cinemas.Add(cinemaOne);
-            cinemas.Add(cinemaTwo);
-            return cinemas;
-        }
-
         public IList<Movie> Movies
         {
             get
             {
                 return getMovies();
             }
+        }
+
+        public IList<Show> Shows
+        {
+            get { return GetShows(); }
+        }
+
+        private IList<Show> GetShows()
+        {
+            var shows = new List<Show>();
+
+            var showOne = new Show {Date = new DateTime(2014, 3, 24, 21, 0, 0), Id = 1, MovieId = 1};
+            var showTwo = new Show {Date = new DateTime(2014, 3, 24, 18, 0, 0), Id = 2, MovieId = 1};
+
+            shows.Add(showOne);
+            shows.Add(showTwo);
+
+            return shows;
         }
 
         private IList<Movie> getMovies()
@@ -44,6 +53,16 @@ namespace Movies.Models
             movies.Add(movieThree);
 
             return movies;
+        }
+
+        private IList<Cinema> GetCinemas()
+        {
+            var cinemas = new List<Cinema>();
+            var cinemaOne = new Cinema { Id = 1, Name = "Sanvika" };
+            var cinemaTwo = new Cinema { Id = 2, Name = "Asker" };
+            cinemas.Add(cinemaOne);
+            cinemas.Add(cinemaTwo);
+            return cinemas;
         }
     }
 }
