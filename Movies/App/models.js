@@ -19,11 +19,11 @@ function cinema(data) {
     self.Name = ko.observable(data.Name);
 };
 
-function Show(data) {
+function show(data) {
     var self = this;
     data = data || {};
 
-    self.ID = ko.observable(data.id);
+    self.ID = ko.observable(data.Id);
     self.Date = ko.observable(data.Date);
     self.MovieId = ko.observable(data.MovieId);
 }

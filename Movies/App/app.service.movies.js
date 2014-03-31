@@ -1,4 +1,5 @@
 ﻿/// <reference path="app.service.js" />
+
 window.app.service = (function () {
     var baseUri = '/api/movies/';
     var serviceUrls = {

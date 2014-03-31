@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.service.movies.js" />
+    <Content Include="App\app.service.show.js" />
     <Content Include="App\models.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

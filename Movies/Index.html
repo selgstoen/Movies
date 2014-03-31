@@ -56,6 +56,17 @@
                         </tr>
                     </tbody>
                 </table>
+                <table class="table table-bordered table-condensed" data-bind="visible: shows().length > 0">
+                    <thead>
+                        <tr><th>Id</th><th>Date</th><th></th></tr>
+                    </thead>
+                    <tbody data-bind="foreach: shows">
+                        <tr>
+                            <td><span data-bind="text: ID"></span></td>
+                            <td><span data-bind="text: Date"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
             <p data-bind="visible: error, text: error"></p>
             <p data-bind="visible: !error() && movies().length == 0">No records found.</p>
@@ -66,6 +77,7 @@
     <script src="Scripts/knockout-3.1.0.js"></script>
     <script src="App/app.service.js"></script>
     <script src="App/app.service.movies.js"></script>
+    <script src="App/app.service.show.js"></script>
     <script src="App/app.js"></script>
     <script src="Scripts/jquery-2.1.0.min.js"></script>
     <script src="Scripts/bootstrap.js"></script>
