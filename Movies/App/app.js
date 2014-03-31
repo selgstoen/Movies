@@ -41,12 +41,12 @@ var ViewModel = function () {
     self.getByGenre = function (genre) {
         self.error(''); 
         self.genre(genre);
-        app.service.byGenre(genre).then(addMovies, onError);
+        app.movieservice.byGenre(genre).then(addMovies, onError);
     };
 
     self.getCinemas = function() {
         self.error('');
-        app.service.cinemas().then(addCinemas, onError);
+        app.movieservice.cinemas().then(addCinemas, onError);
     };
 
     self.getShows = function () {

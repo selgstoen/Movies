@@ -1,6 +1,6 @@
 ﻿/// <reference path="app.service.js" />
 
-window.app.service = (function () {
+window.app.movieservice = (function () {
     var baseUri = '/api/movies/';
     var serviceUrls = {
         movies: function () { return baseUri; },
