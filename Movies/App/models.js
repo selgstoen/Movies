@@ -1,4 +1,6 @@
-﻿function movie(data) {
+﻿
+
+function movie(data) {
     var self = this;
     data = data || {};
 

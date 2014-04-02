@@ -11,67 +11,74 @@
     </head>
 <body>
     <div class="container">
-        <div class="page-header">
-            <h1>
-                Movies
-                <small><span data-bind="text: genre"></span></small>
-            </h1>
-        </div>
+        <div class="tabbable">
+            <ul class="nav nav-tabs" data-bind="foreach: cinemas" >
+                <li>
+                    <a href="#" data-bind="text: Name, click: $parent.showMessage"><span data-bind="  text: $data"></span></a>
+                </li>
+            </ul>
+            <div class="page-header">
+                <h1>
+                    Movies
+                    <small><span data-bind="text: genre"></span></small>
+                </h1>
+            </div>
 
-        <div class="span8">
-            <div>
+            <div class="span8">
+                <div>
 
-                <div class="row">
-                    <div class="span2">
-                        <div class="navbar">
-                            <div class="navbar-inner">
-                                <ul class="nav nav-pills nav-stacked" data-bind="foreach: genres">
-                                    <li><a href="#" data-bind="click: $parent.getByGenre"><span data-bind="  text: $data"></span></a></li>
-                                </ul>
+                    <div class="row">
+                        <div class="span2">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <ul class="nav nav-pills nav-stacked" data-bind="foreach: genres">
+                                        <li><a href="#" data-bind="click: $parent.getByGenre"><span data-bind="  text: $data"></span></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                <table class="table table-bordered table-condensed" data-bind="visible: movies().length > 0">
-                    <thead>
-                        <tr><th>Title</th><th>Year</th><th>Rating</th><th></th></tr>
-                    </thead>
-                    <tbody data-bind="foreach: movies">
-                        <tr>
-                            <td><span data-bind="text: Title"></span></td>
-                            <td><span data-bind="text: Year"></span></td>
-                            <td><span data-bind="text: Rating"></span></td>
-                            <td><!-- Edit button will go here --></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered table-condensed" data-bind="visible: cinemas().length > 0">
-                    <thead>
-                        <tr><th>Id</th><th>Name</th><th></th></tr>
-                    </thead>
-                    <tbody data-bind="foreach: cinemas">
-                        <tr>
-                            <td><span data-bind="text: ID"></span></td>
-                            <td><span data-bind="text: Name"></span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered table-condensed" data-bind="visible: shows().length > 0">
-                    <thead>
-                        <tr><th>Id</th><th>Date</th><th></th></tr>
-                    </thead>
-                    <tbody data-bind="foreach: shows">
-                        <tr>
-                            <td><span data-bind="text: ID"></span></td>
-                            <td><span data-bind="text: Date"></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-bordered table-condensed" data-bind="visible: movies().length > 0">
+                        <thead>
+                            <tr><th>Title</th><th>Year</th><th>Rating</th><th></th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: movies">
+                            <tr>
+                                <td><span data-bind="text: Title"></span></td>
+                                <td><span data-bind="text: Year"></span></td>
+                                <td><span data-bind="text: Rating"></span></td>
+                                <td><!-- Edit button will go here --></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-condensed" data-bind="visible: cinemas().length > 0">
+                        <thead>
+                            <tr><th>Id</th><th>Name</th><th></th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: cinemas">
+                            <tr>
+                                <td><span data-bind="text: ID"></span></td>
+                                <td><span data-bind="text: Name"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-condensed" data-bind="visible: shows().length > 0">
+                        <thead>
+                            <tr><th>Id</th><th>Date</th><th></th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: shows">
+                            <tr>
+                                <td><span data-bind="text: ID"></span></td>
+                                <td><span data-bind="text: Date"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            <p data-bind="visible: error, text: error"></p>
-            <p data-bind="visible: !error() && movies().length == 0">No records found.</p>
+                <p data-bind="visible: error, text: error"></p>
+                <p data-bind="visible: !error() && movies().length == 0">No records found.</p>
+            </div>
+            </div>
         </div>
-    </div>
    
     <script src="Scripts/jquery-2.1.0.js"></script>
     <script src="Scripts/knockout-3.1.0.js"></script>
