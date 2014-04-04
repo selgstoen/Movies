@@ -5,13 +5,11 @@ var ViewModel = function () {
     var self = this;
 
     self.movies = ko.observableArray();
-    self.cinemas = [];
     self.cinemas = ko.observableArray();
     self.shows = ko.observableArray();
     self.error = ko.observable();
     self.genre = ko.observable();
     self.currentCinema = ko.observable();
-
     
 
     self.genres = ['Action', 'Drama', 'Fantasy', 'Horror', 'Romantic Comedy'];
@@ -57,11 +55,10 @@ var ViewModel = function () {
         app.showservice.allShows().then(addShows, onError);
     };
 
-    self.showMessage = function (message) {
-        self.error('');
-        self.currentCinema(message);
+    self.showMessage = function (index) {
+        self.currentCinema(this);
 
-        alert(self.currentCinema);
+        alert(index);
     };
 
     self.getByGenre(self.genres[0]);
