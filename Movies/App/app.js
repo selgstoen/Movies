@@ -11,7 +11,6 @@ var ViewModel = function () {
     self.genre = ko.observable();
     self.currentCinema = ko.observable();
     
-
     self.genres = ['Action', 'Drama', 'Fantasy', 'Horror', 'Romantic Comedy'];
 
     function addMovies(data) {
@@ -26,13 +25,14 @@ var ViewModel = function () {
             return new cinema(item);
         });
         self.cinemas(mapped);
+        self.currentCinema(self.cinemas()[0].Name());
     }
 
     function addShows(data) {
         var mapped = ko.utils.arrayMap(data, function (item) {
             return new show(item);
         });
-        self.shows(mapped);
+        self.shows(mapped); 
     }
 
     function onError(error) {
@@ -47,24 +47,21 @@ var ViewModel = function () {
 
     self.getCinemas = function() {
         self.error('');
-        app.movieservice.cinemas().then(addCinemas, onError);
-    };
+        app.movieservice.cinemas().then(addCinemas, onError);     
+    }
 
     self.getShows = function () {
         self.error('');
         app.showservice.allShows().then(addShows, onError);
     };
 
-    self.showMessage = function (index) {
-        self.currentCinema(this);
-
-        alert(index);
+    self.getMoviesForCinema = function (index) {
+        self.currentCinema(this.Name());
     };
 
     self.getByGenre(self.genres[0]);
     self.getCinemas();
     self.getShows();
 }
-// Create the view model instance and pass it to Knockout
 
 ko.applyBindings(new ViewModel());

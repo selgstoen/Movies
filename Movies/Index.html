@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html>
-    
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,13 +13,13 @@
         <div class="tabbable">
             <ul class="nav nav-tabs" data-bind="foreach: cinemas" >
                 <li>
-                    <a href="#" data-bind="text: Name, click: $parent.showMessage.bind($data, $index())"></a>
+                    <a href="#" data-bind="text: Name, click: $parent.getMoviesForCinema.bind($data, $index())"></a>
                 </li>
             </ul>
             <div class="page-header">
                 <h1>
                     Movies
-                    <small><span data-bind="text: genre"></span></small>
+                    <small><span data-bind="text: genre"></span></small>&nbsp;<small><span data-bind=" text: currentCinema"></span></small>
                 </h1>
             </div>
 
