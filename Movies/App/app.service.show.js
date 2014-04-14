@@ -1,11 +1,12 @@
 ﻿
 
 window.app.showservice = (function () {
-    var baseUri = '/api/show/';
+    var baseUri = '/api/shows/';
     var serviceUrls = {
-        shows: function () { return baseUri; }
+        shows: function () { return baseUri; },
+        ByCinemaId: function (cinemaId) { return baseUri + '?id=' + cinemaId; }
     }
-
+    
     function ajaxRequest(type, url, data) {
         var options = {
             url: url,
@@ -21,8 +22,11 @@ window.app.showservice = (function () {
     }
 
     return {
-        allShows: function () {
+        allShows: function() {
             return ajaxRequest('get', serviceUrls.shows());
+        },
+        ByCinemaId: function (cinemaId) {
+            return ajaxRequest('get', serviceUrls.ByCinemaId(cinemaId));
         }
     };
 })();

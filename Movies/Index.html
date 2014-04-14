@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="tabbable">
-            <ul class="nav nav-tabs" data-bind="foreach: cinemas" >
+            <ul class="nav nav-tabs" data-bind="foreach: cinemas">
                 <li>
                     <a href="#" data-bind="text: Name, click: $parent.getMoviesForCinema.bind($data, $index())"></a>
                 </li>
@@ -25,7 +25,6 @@
 
             <div class="span8">
                 <div>
-
                     <div class="row">
                         <div class="span2">
                             <div class="navbar">
@@ -37,6 +36,7 @@
                             </div>
                         </div>
                     </div>
+
                     <table class="table table-bordered table-condensed" data-bind="visible: movies().length > 0">
                         <thead>
                             <tr><th>Title</th><th>Year</th><th>Rating</th><th></th></tr>
@@ -50,17 +50,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-bordered table-condensed" data-bind="visible: cinemas().length > 0">
-                        <thead>
-                            <tr><th>Id</th><th>Name</th><th></th></tr>
-                        </thead>
-                        <tbody data-bind="foreach: cinemas">
-                            <tr>
-                                <td><span data-bind="text: ID"></span></td>
-                                <td><span data-bind="text: Name"></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+
                     <table class="table table-bordered table-condensed" data-bind="visible: shows().length > 0">
                         <thead>
                             <tr><th>Id</th><th>Date</th><th></th></tr>
@@ -76,9 +66,9 @@
                 <p data-bind="visible: error, text: error"></p>
                 <p data-bind="visible: !error() && movies().length == 0">No records found.</p>
             </div>
-            </div>
         </div>
-   
+    </div>
+
     <script src="Scripts/jquery-2.1.0.js"></script>
     <script src="Scripts/knockout-3.1.0.js"></script>
     <script src="App/app.service.js"></script>

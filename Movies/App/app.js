@@ -10,6 +10,7 @@ var ViewModel = function () {
     self.error = ko.observable();
     self.genre = ko.observable();
     self.currentCinema = ko.observable();
+    self.currentCinemaId = ko.observable();
     
     self.genres = ['Action', 'Drama', 'Fantasy', 'Horror', 'Romantic Comedy'];
 
@@ -26,6 +27,7 @@ var ViewModel = function () {
         });
         self.cinemas(mapped);
         self.currentCinema(self.cinemas()[0].Name());
+        self.currentCinemaId(self.cinemas()[0].ID());
     }
 
     function addShows(data) {
@@ -50,18 +52,24 @@ var ViewModel = function () {
         app.movieservice.cinemas().then(addCinemas, onError);     
     }
 
+    //self.getShows = function () {
+    //    self.error('');
+    //    app.showservice.allShows().then(addShows, onError);
+    //};
+
     self.getShows = function () {
         self.error('');
-        app.showservice.allShows().then(addShows, onError);
+        app.showservice.ByCinemaId(1).then(addShows, onError);
     };
 
     self.getMoviesForCinema = function (index) {
         self.currentCinema(this.Name());
+        self.getShows();
     };
 
     self.getByGenre(self.genres[0]);
     self.getCinemas();
-    self.getShows();
+    //self.getShows();
 }
 
 ko.applyBindings(new ViewModel());

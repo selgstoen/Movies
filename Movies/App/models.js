@@ -28,4 +28,5 @@ function show(data) {
     self.ID = ko.observable(data.Id);
     self.Date = ko.observable(data.Date);
     self.MovieId = ko.observable(data.MovieId);
+    self.cinemaID = data.cinemaId;
 }
