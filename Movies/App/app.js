@@ -57,14 +57,15 @@ var ViewModel = function () {
     //    app.showservice.allShows().then(addShows, onError);
     //};
 
-    self.getShows = function () {
+    self.getShows = function (id) {
         self.error('');
-        app.showservice.ByCinemaId(1).then(addShows, onError);
+        app.showservice.ByCinemaId(id).then(addShows, onError);
     };
 
     self.getMoviesForCinema = function (index) {
         self.currentCinema(this.Name());
-        self.getShows();
+        var id = this.ID();
+        self.getShows(id);
     };
 
     self.getByGenre(self.genres[0]);
