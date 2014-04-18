@@ -55,7 +55,7 @@ var ViewModel = function () {
     self.getShows = function (id) {
         self.error('');
         var position = self.getPostionForShows(id);
-        if (position > 0) {
+        if (position > -1) {
             self.shows(self.loadedShows[position]);
             return;
         }
@@ -64,7 +64,7 @@ var ViewModel = function () {
 
     self.getPostionForShows = function(cinemaId) {
         if (self.loadedShows.length === 0)
-            return 0;
+            return -1;
         for (var i = 1; i < self.loadedShows.length; i++) {
             for (var j = 0; j < self.loadedShows[i].length; j++) {
                 var currentId = self.loadedShows[i][j].CinemaId;
@@ -74,7 +74,7 @@ var ViewModel = function () {
             }
             
         }
-        return 0;
+        return -1;
     }
 
 

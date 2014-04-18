@@ -34,9 +34,11 @@ namespace Movies.Models
 
             var showOne = new Show {Date = new DateTime(2014, 3, 24, 21, 0, 0), Id = 1, MovieId = 1, CinemaId = 1};
             var showTwo = new Show {Date = new DateTime(2014, 3, 24, 18, 0, 0), Id = 2, MovieId = 1, CinemaId = 2};
+            var showThree = new Show { Date = new DateTime(2014, 3, 24, 23, 0, 0), Id = 3, MovieId = 1, CinemaId = 1 };
 
             shows.Add(showOne);
             shows.Add(showTwo);
+            shows.Add(showThree);
 
             return shows;
         }
