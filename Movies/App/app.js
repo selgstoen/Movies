@@ -1,6 +1,4 @@
-﻿/// <reference path="models.js" />
-
-
+﻿
 var ViewModel = function () {
     var self = this;
 
@@ -11,6 +9,7 @@ var ViewModel = function () {
     self.genre = ko.observable();
     self.currentCinema = ko.observable();
     self.currentCinemaId = ko.observable();
+    self.loadedShows = [];
     
     self.genres = ['Action', 'Drama', 'Fantasy', 'Horror', 'Romantic Comedy'];
 
@@ -34,6 +33,7 @@ var ViewModel = function () {
         var mapped = ko.utils.arrayMap(data, function (item) {
             return new show(item);
         });
+        self.loadedShows.push(mapped);
         self.shows(mapped); 
     }
 
@@ -46,21 +46,37 @@ var ViewModel = function () {
         self.genre(genre);
         app.movieservice.byGenre(genre).then(addMovies, onError);
     };
-
+    
     self.getCinemas = function() {
         self.error('');
         app.movieservice.cinemas().then(addCinemas, onError);     
     }
 
-    //self.getShows = function () {
-    //    self.error('');
-    //    app.showservice.allShows().then(addShows, onError);
-    //};
-
     self.getShows = function (id) {
         self.error('');
+        var position = self.getPostionForShows(id);
+        if (position > 0) {
+            self.shows(self.loadedShows[position]);
+            return;
+        }
         app.showservice.ByCinemaId(id).then(addShows, onError);
     };
+
+    self.getPostionForShows = function(cinemaId) {
+        if (self.loadedShows.length === 0)
+            return 0;
+        for (var i = 1; i < self.loadedShows.length; i++) {
+            for (var j = 0; j < self.loadedShows[i].length; j++) {
+                var currentId = self.loadedShows[i][j].CinemaId;
+                if (currentId === cinemaId) {
+                    return i;
+                }
+            }
+            
+        }
+        return 0;
+    }
+
 
     self.getMoviesForCinema = function (index) {
         self.currentCinema(this.Name());
@@ -70,7 +86,6 @@ var ViewModel = function () {
 
     self.getByGenre(self.genres[0]);
     self.getCinemas();
-    //self.getShows();
 }
 
 ko.applyBindings(new ViewModel());
