@@ -65,14 +65,13 @@ var ViewModel = function () {
     self.getPostionForShows = function(cinemaId) {
         if (self.loadedShows.length === 0)
             return -1;
-        for (var i = 1; i < self.loadedShows.length; i++) {
+        for (var i = 0; i < self.loadedShows.length; i++) {
             for (var j = 0; j < self.loadedShows[i].length; j++) {
                 var currentId = self.loadedShows[i][j].CinemaId;
                 if (currentId === cinemaId) {
                     return i;
                 }
             }
-            
         }
         return -1;
     }
