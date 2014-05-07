@@ -1,5 +1,6 @@
 ﻿
 
+
 function movie(data) {
     var self = this;
     data = data || {};
@@ -21,6 +22,14 @@ function cinema(data) {
     self.Name = ko.observable(data.Name);
 };
 
+function row(data) {
+    var self = this;
+    data = data || {};
+
+    self.ID = data.Id;
+    self.seats = data.Seats;
+}
+
 function show(data) {
     var self = this;
     data = data || {};
@@ -29,13 +38,9 @@ function show(data) {
     self.Date = ko.observable(data.Date);
     self.MovieId = ko.observable(data.MovieId);
     self.CinemaId = data.CinemaId;
-    self.rows = data.rows;
+    self.rows = _.map(data.Rows, function(rowdata) {
+        return new row(rowdata);
+    });
 }
 
-function row(data) {
-    var self = this;
-    data = data || {};
 
-    self.ID = data.id;
-    self.seats = data.seats;
-}
