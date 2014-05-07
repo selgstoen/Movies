@@ -10,7 +10,6 @@ function movie(data) {
     self.Year = ko.observable(data.Year);
     self.Rating = ko.observable(data.Rating);
     self.Genre = ko.observable(data.Genre);
-
     self.editing = ko.observable(false);
 };
 
@@ -20,14 +19,24 @@ function cinema(data) {
 
     self.ID = ko.observable(data.Id);
     self.Name = ko.observable(data.Name);
-};
+};;
+
+function seat(data) {
+    var self = this;
+    data = data || {}
+
+    self.ID = data.Id;
+    self.status = ko.observable(data.Status);
+}
 
 function row(data) {
     var self = this;
     data = data || {};
 
     self.ID = data.Id;
-    self.seats = data.Seats;
+    self.seats = _.map(data.Seats, function(seatData) {
+        return new seat(seatData);
+    });
 }
 
 function show(data) {

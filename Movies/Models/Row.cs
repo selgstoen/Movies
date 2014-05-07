@@ -7,10 +7,10 @@ namespace Movies.Models
         public Row(int id)
         {
             Id = id;
-            Seats = new List<decimal>();
+            Seats = new List<Seat>();
         }
 
         public int Id { get; set; }
-        public List<decimal> Seats { get; set; }
+        public List<Seat> Seats { get; set; }
     }
 }

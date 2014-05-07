@@ -62,7 +62,8 @@ namespace Movies.Models
 
                 for (var s = 0; s < 25; s++)
                 {
-                    row.Seats.Add(s);
+
+                    row.Seats.Add(new Seat(s));
                 }
                 rows.Add(row);
             }
