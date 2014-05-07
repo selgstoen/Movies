@@ -40,7 +40,33 @@ namespace Movies.Models
             shows.Add(showTwo);
             shows.Add(showThree);
 
+            AddRowsToShows(shows);
+
             return shows;
+        }
+
+        private void AddRowsToShows(IEnumerable<Show> shows)
+        {
+            foreach (var show in shows)
+            {
+                show.Rows = GetRows();
+            }
+        }
+
+        private IEnumerable<Row> GetRows()
+        {
+            var rows = new List<Row>();
+            for (var r = 0; r < 50; r++)
+            {
+                var row = new Row(r);
+
+                for (var s = 0; s < 25; s++)
+                {
+                    row.Seats.Add(s);
+                }
+                rows.Add(row);
+            }
+            return rows;
         }
 
         private IList<Movie> getMovies()

@@ -113,6 +113,7 @@
     <Compile Include="Models\Cinema.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviesContext.cs" />
+    <Compile Include="Models\Row.cs" />
     <Compile Include="Models\Show.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

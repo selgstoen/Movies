@@ -29,4 +29,13 @@ function show(data) {
     self.Date = ko.observable(data.Date);
     self.MovieId = ko.observable(data.MovieId);
     self.CinemaId = data.CinemaId;
+    self.rows = data.rows;
+}
+
+function row(data) {
+    var self = this;
+    data = data || {};
+
+    self.ID = data.id;
+    self.seats = data.seats;
 }
