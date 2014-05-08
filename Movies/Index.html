@@ -59,12 +59,22 @@
                             <tr>
                                 <td><span data-bind="text: ID"></span></td>
                                 <td><span data-bind="text: Date"></span></td>
+                                <td><a href="#" data-bind="text: ID, click: $parent.getRowsForShow.bind($data)"></a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div class="span8" data-bind="visible: viewRows() === 1">
+                    <table>
+                        <thead><th>Rows</th></thead>
+                        <tbody data-bind="foreach: currentShow.rows"></tbody>
+                        <tr>
+                            <td>Yess</td>
+                            <!--<td><span data-bind="text: ID"></span></td>-->
+                        </tr>
+                    </table>
+                </div>
                 <p data-bind="visible: error, text: error"></p>
-                <p data-bind="visible: !error() && movies().length == 0">No records found.</p>
             </div>
         </div>
     </div>
